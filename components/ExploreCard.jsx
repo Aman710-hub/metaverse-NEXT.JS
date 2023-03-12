@@ -5,6 +5,7 @@ import styles from "../styles";
 import { fadeIn } from "../utils/motion";
 const ExploreCard = ({ id, imgUrl, title, index, active, handleClick }) => (
   <motion.div
+    onClick={() => handleClick(id)}
     variants={fadeIn("right", "spring", index * 0.5, 0.75)}
     className={`relative ${
       active === id ? "lg:flex-[3.5] flex-[10]" : "lg:flex-[0.5] flex-[2]"
@@ -30,8 +31,12 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick }) => (
             className="w-1/2 h-1/2 object-contain"
           />
         </div>
-        <p className="font-normal text-[16px] leading-[20px] text-white uppercase">Enter the Metaverse</p>
-        <h2 className="mt-[24px] font-semibold sm:text-[32px] text-[24px] text-white">{title}</h2>
+        <p className="font-normal text-[16px] leading-[20px] text-white uppercase">
+          Enter the Metaverse
+        </p>
+        <h2 className="mt-[24px] font-semibold sm:text-[32px] text-[24px] text-white">
+          {title}
+        </h2>
       </div>
     )}
   </motion.div>
