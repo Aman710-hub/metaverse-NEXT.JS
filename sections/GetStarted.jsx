@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import styles from "../styles";
-import {TypingText, TitleText, StartSteps} from "../components";
+import { TypingText, TitleText, StartSteps } from "../components";
 import {
   staggerContainer,
   FeatureDefinition,
@@ -23,6 +23,8 @@ const GetStarted = () => (
       <motion.div
         variants={planetVariants("left")}
         className={`flex-1 ${styles.flexCenter}`}
+        initial="hidden"
+        whileInView="show"
       >
         <img
           src="/get-started.png"
@@ -30,17 +32,21 @@ const GetStarted = () => (
           className="w-[90%] h-[90%] object-contain"
         />
       </motion.div>
-      <motion.div 
-      variants={fadeIn("left", "tween", 0.2, 1)}
-      className="flex-[0.75] flex justify-center flex-col"
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        variants={fadeIn("left", "tween", 0.25, 1)}
+        className="flex-[0.75] flex justify-center flex-col"
       >
-        <TypingText title="| How Metaverse Works"/>
-        <TitleText title={<>Get started with just a few clicks</>}/>
-        <div className="mt-[31px] flex flex-col max-w-[370px] gap-[24px]">{startingFeatures.map((feature, index) => {
-          return (
-            <StartSteps key={feature} number={index + 1}/>
-          )
-        })}</div>
+        <TypingText title="| How Metaverse Works" />
+        <TitleText title={<>Get started with just a few clicks</>} />
+        <div className="mt-[31px] flex flex-col max-w-[370px] gap-[24px]">
+          {startingFeatures.map((feature, index) => {
+            return (
+              <StartSteps key={feature} number={index + 1} text={feature} />
+            );
+          })}
+        </div>
       </motion.div>
     </motion.div>
   </section>
