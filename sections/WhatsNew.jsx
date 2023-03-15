@@ -1,13 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
 import styles from "../styles";
-import { TypingText, TitleText, StartSteps } from "../components";
+import { TypingText, TitleText, NewFeatures } from "../components";
 import {
   staggerContainer,
   FeatureDefinition,
   planetVariants,
   fadeIn,
 } from "../utils/motion";
+import { newFeatures } from "../constants";
 const WhatsNew = () => (
   <section className={`${styles.paddings} relative z-10`}>
     <motion.div
@@ -25,13 +26,11 @@ const WhatsNew = () => (
       >
         <TypingText title="| What's New" />
         <TitleText title={<>What's new about metaverses?</>} />
-        {/* <div className="mt-[31px] flex flex-col max-w-[370px] gap-[24px]">
-        {startingFeatures.map((feature, index) => {
-          return (
-            <StartSteps key={feature} number={index + 1} text={feature} />
-          );
-        })}
-      </div> */}
+        <div className="mt-[48px] flex  flex-wrap justify-between gap-[24px]">
+          {newFeatures.map((feature) => {
+            return <NewFeatures key={feature.title} {...feature} />;
+          })}
+        </div>
       </motion.div>
       <motion.div
         variants={planetVariants("right")}
