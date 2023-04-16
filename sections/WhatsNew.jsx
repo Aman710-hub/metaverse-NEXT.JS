@@ -4,7 +4,6 @@ import styles from "../styles";
 import { TypingText, TitleText, NewFeatures } from "../components";
 import {
   staggerContainer,
-  FeatureDefinition,
   planetVariants,
   fadeIn,
 } from "../utils/motion";
